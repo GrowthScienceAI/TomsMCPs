@@ -38,157 +38,433 @@
   {
     "name": "Google Maps",
     "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps",
-    "description": "Location services, directions, and business information",
+    "description": "Location services, directions, and place details",
     "category": "Maps & Location"
   },
   {
-    "name": "Google Search",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-search",
-    "description": "Web search using Google's Search API",
-    "category": "Search Engine"
+    "name": "Memory",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+    "description": "Knowledge graph-based persistent memory system",
+    "category": "Knowledge Management"
   },
   {
-    "name": "Langchain",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/langchain",
-    "description": "Simplified LangChain integration for AI development",
-    "category": "Development Tools"
-  },
-  {
-    "name": "Langfuse",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/langfuse",
-    "description": "Tracing and monitoring for LLM applications",
-    "category": "Development Tools"
-  },
-  {
-    "name": "Notion",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/notion",
-    "description": "Connection to Notion databases and pages",
-    "category": "Knowledge Base"
-  },
-  {
-    "name": "Open Library",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/open-library",
-    "description": "Book information from the Open Library API",
-    "category": "Knowledge Base"
-  },
-  {
-    "name": "PGVector",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/pgvector",
-    "description": "Semantic search with PostgreSQL and the pgvector extension",
+    "name": "PostgreSQL",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres",
+    "description": "Read-only database access with schema inspection",
     "category": "Database"
   },
   {
-    "name": "Pinecone",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/pinecone",
-    "description": "Vector database for similarity search and retrieval",
-    "category": "Database"
+    "name": "Puppeteer",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer",
+    "description": "Browser automation and web scraping",
+    "category": "Web Automation"
   },
   {
-    "name": "Python Runner",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/python-runner",
-    "description": "Secure Python code execution environment",
-    "category": "Development Tools"
+    "name": "Sentry",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sentry",
+    "description": "Retrieving and analyzing issues from Sentry.io",
+    "category": "Error Monitoring"
   },
   {
-    "name": "Qdrant",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/qdrant",
-    "description": "Vector database for efficient similarity search",
-    "category": "Database"
-  },
-  {
-    "name": "Redis",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/redis",
-    "description": "In-memory data structure store supporting simple key-value and complex data structures",
-    "category": "Database"
-  },
-  {
-    "name": "Retriever",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/retriever",
-    "description": "Document retrieval with hierarchical passages for accurate context",
-    "category": "Knowledge Base"
-  },
-  {
-    "name": "Scraper",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/scraper",
-    "description": "Universal web scraping with content extraction and parsing",
-    "category": "Web Scraping & Content"
-  },
-  {
-    "name": "Searxng",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/searxng",
-    "description": "Privacy-respecting metasearch engine",
-    "category": "Search Engine"
+    "name": "Sequential Thinking",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+    "description": "Dynamic and reflective problem-solving through thought sequences",
+    "category": "AI Thinking Tools"
   },
   {
     "name": "Slack",
     "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
-    "description": "Slack messaging and workflow automation",
-    "category": "Messaging"
+    "description": "Channel management and messaging capabilities",
+    "category": "Team Communication"
   },
   {
-    "name": "Spotify",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/spotify",
-    "description": "Music search and playlist management",
-    "category": "API Integration"
-  },
-  {
-    "name": "SQLite",
+    "name": "Sqlite",
     "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
-    "description": "Lightweight SQL database operations",
+    "description": "Database interaction and business intelligence capabilities",
     "category": "Database"
   },
   {
-    "name": "Translator",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/translator",
-    "description": "Language translation services",
-    "category": "Language & Translation"
+    "name": "21st.dev Magic",
+    "url": "https://github.com/21st-dev/magic-mcp",
+    "description": "Create crafted UI components inspired by the best 21st.dev design engineers.",
+    "category": "UI & Design"
   },
   {
-    "name": "Weather",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/weather",
-    "description": "Current weather conditions and forecasts",
-    "category": "API Integration"
+    "name": "Adfin",
+    "url": "https://github.com/Adfin-Engineering/mcp-server-adfin",
+    "description": "The only platform you need to get paid - all payments in one place, invoicing and accounting reconciliations with Adfin.",
+    "category": "Finance & Payments"
   },
   {
-    "name": "Wikipedia",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/wikipedia",
-    "description": "Wikipedia search and content access",
-    "category": "Knowledge Base"
+    "name": "AgentQL",
+    "url": "https://github.com/tinyfish-io/agentql-mcp",
+    "description": "Enable AI agents to get structured data from unstructured web with AgentQL.",
+    "category": "Data Extraction"
   },
   {
-    "name": "Youtube",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/youtube",
-    "description": "YouTube video search and metadata",
+    "name": "AgentRPC",
+    "url": "https://github.com/agentrpc/agentrpc",
+    "description": "Connect to any function, any language, across network boundaries using AgentRPC.",
+    "category": "Function Calling"
+  },
+  {
+    "name": "Aiven",
+    "url": "https://github.com/Aiven-Open/mcp-aiven",
+    "description": "Navigate your Aiven projects and interact with the PostgreSQL®, Apache Kafka®, ClickHouse® and OpenSearch® services",
+    "category": "Cloud Services"
+  },
+  {
+    "name": "ALAPI",
+    "url": "https://github.com/ALAPI-SDK/mcp-alapi-cn",
+    "description": "ALAPI MCP Tools, Call hundreds of API interfaces via MCP",
+    "category": "API Services"
+  },
+  {
+    "name": "Apify",
+    "url": "https://github.com/apify/actors-mcp-server",
+    "description": "Actors MCP Server: Use 3,000+ pre-built cloud tools to extract data from websites, e-commerce, social media, search engines, maps, and more",
+    "category": "API Services"
+  },
+  {
+    "name": "APIMatic MCP",
+    "url": "https://github.com/apimatic/apimatic-validator-mcp",
+    "description": "APIMatic MCP Server is used to validate OpenAPI specifications using APIMatic. The server processes OpenAPI files and returns validation summaries by leveraging APIMatic's API.",
+    "category": "Cryptocurrency & Blockchain"
+  },
+  {
+    "name": "Armor Crypto MCP",
+    "url": "https://github.com/armorwallet/armor-crypto-mcp",
+    "description": "MCP to interface with multiple blockchains, staking, DeFi, swap, bridging, wallet management, DCA, Limit Orders, Coin Lookup, Tracking and more.",
+    "category": "AI Evaluation & Testing"
+  },
+  {
+    "name": "Atla",
+    "url": "https://github.com/atla-ai/atla-mcp-server",
+    "description": "Enable AI agents to interact with the Atla API for state-of-the-art LLMJ evaluation.",
+    "category": "Marketing & Analytics"
+  },
+  {
+    "name": "Audiense Insights",
+    "url": "https://github.com/AudienseCo/mcp-audiense-insights",
+    "description": "Marketing insights and audience analysis from Audiense reports, covering demographic, cultural, influencer, and content engagement analysis.",
+    "category": "Marketing & Analytics"
+  },
+  {
+    "name": "AWS Bedrock KB Retrieval",
+    "url": "https://github.com/awslabs/mcp/tree/main/src/bedrock-kb-retrieval-mcp-server",
+    "description": "Query Amazon Bedrock Knowledge Bases using natural language to retrieve relevant information from your data sources.",
+    "category": "Cloud Services"
+  },
+  {
+    "name": "AWS CDK",
+    "url": "https://github.com/awslabs/mcp/tree/main/src/cdk-mcp-server",
+    "description": "Get prescriptive CDK advice, explain CDK Nag rules, check suppressions, generate Bedrock Agent schemas, and discover AWS Solutions Constructs patterns.",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "AWS Core",
+    "url": "https://github.com/awslabs/mcp/tree/main/src/core-mcp-server",
+    "description": "Core AWS MCP server providing prompt understanding and server management capabilities.",
+    "category": "Cloud Services"
+  },
+  {
+    "name": "AWS Cost Analysis",
+    "url": "https://github.com/awslabs/mcp/tree/main/src/cost-analysis-mcp-server",
+    "description": "Analyze CDK projects to identify AWS services used and get pricing information from AWS pricing webpages and API.",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "AWS Documentation",
+    "url": "https://github.com/awslabs/mcp/tree/main/src/aws-documentation-mcp-server",
+    "description": "Fetch, convert, and search AWS documentation pages, with recommendations for related content.",
+    "category": "AI Image Generation"
+  },
+  {
+    "name": "AWS Nova Canvas",
+    "url": "https://github.com/awslabs/mcp/tree/main/src/nova-canvas-mcp-server",
+    "description": "Generate images using Amazon Nova Canvas with text prompts and color guidance.",
+    "category": "AI Image Generation"
+  },
+  {
+    "name": "Axiom",
+    "url": "https://github.com/axiomhq/mcp-server-axiom",
+    "description": "Query and analyze your Axiom logs, traces, and all other event data in natural language",
+    "category": "Logging & Monitoring"
+  },
+  {
+    "name": "Bankless Onchain",
+    "url": "https://github.com/bankless/onchain-mcp",
+    "description": "Query Onchain data, like ERC20 tokens, transaction history, smart contract state.",
+    "category": "Blockchain & Crypto"
+  },
+  {
+    "name": "Baserow",
+    "url": "https://baserow.io/user-docs/mcp-server",
+    "description": "Read and write access to your Baserow tables.",
+    "category": "Database"
+  },
+  {
+    "name": "Box",
+    "url": "https://github.com/box-community/mcp-server-box",
+    "description": "Interact with the Intelligent Content Management platform through Box AI.",
+    "category": "Content Management"
+  },
+  {
+    "name": "Bright Data",
+    "url": "https://github.com/luminati-io/brightdata-mcp",
+    "description": "Discover, extract, and interact with the web - one interface powering automated access across the public internet.",
     "category": "Web Scraping & Content"
   },
   {
-    "name": "Anthropic",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/anthropic",
-    "description": "Integration with Anthropic's Claude models",
-    "category": "API Integration"
+    "name": "Browserbase",
+    "url": "https://github.com/browserbase/mcp-server-browserbase",
+    "description": "Automate browser interactions in the cloud (e.g. web navigation, data extraction, form filling, and more)",
+    "category": "Web Automation"
   },
   {
-    "name": "Asana",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/asana",
-    "description": "Task and project management with Asana",
+    "name": "BrowserStack",
+    "url": "https://github.com/browserstack/mcp-server",
+    "description": "Bring the full power of BrowserStack's Test Platform to your AI tools, making testing faster and easier for every developer and tester on your team.",
+    "category": "Testing & Development"
+  },
+  {
+    "name": "Bucket",
+    "url": "https://github.com/bucketco/bucket-javascript-sdk/tree/main/packages/cli#model-context-protocol",
+    "description": "Flag features, manage company data, and control feature access using Bucket",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Chargebee",
+    "url": "https://github.com/chargebee/agentkit/tree/main/modelcontextprotocol",
+    "description": "MCP Server that connects AI agents to Chargebee platform.",
+    "category": "Payment Processing"
+  },
+  {
+    "name": "Chroma",
+    "url": "https://github.com/chroma-core/chroma-mcp",
+    "description": "Embeddings, vector search, document storage, and full-text search with the open-source AI application database",
+    "category": "Vector Database"
+  },
+  {
+    "name": "Chronulus AI",
+    "url": "https://github.com/ChronulusAI/chronulus-mcp",
+    "description": "Predict anything with Chronulus AI forecasting and prediction agents.",
+    "category": "AI & Forecasting"
+  },
+  {
+    "name": "CircleCI",
+    "url": "https://github.com/CircleCI-Public/mcp-server-circleci",
+    "description": "Enable AI Agents to fix build failures from CircleCI.",
+    "category": "CI/CD & DevOps"
+  },
+  {
+    "name": "ClickHouse",
+    "url": "https://github.com/ClickHouse/mcp-clickhouse",
+    "description": "Query your ClickHouse database server.",
+    "category": "Database"
+  },
+  {
+    "name": "Cloudflare",
+    "url": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "description": "Deploy, configure & interrogate your resources on the Cloudflare developer platform (e.g. Workers/KV/R2/D1)",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "Comet Opik",
+    "url": "https://github.com/comet-ml/opik-mcp",
+    "description": "Query and analyze your Opik logs, traces, prompts and all other telemtry data from your LLMs in natural language.",
+    "category": "MLOps & Monitoring"
+  },
+  {
+    "name": "Context 7",
+    "url": "https://github.com/upstash/context7-mcp",
+    "description": "Context7 MCP - Up-to-date Docs For Any Cursor Prompt",
+    "category": "Knowledge Management"
+  },
+  {
+    "name": "Convex",
+    "url": "https://stack.convex.dev/convex-mcp-server",
+    "description": "Introspect and query your apps deployed to Convex.",
+    "category": "Backend & Database"
+  },
+  {
+    "name": "Couchbase",
+    "url": "https://github.com/Couchbase-Ecosystem/mcp-server-couchbase",
+    "description": "Interact with the data stored in Couchbase clusters using natural language.",
+    "category": "Database"
+  },
+  {
+    "name": "CRIC Wuye AI",
+    "url": "https://github.com/wuye-ai/mcp-server-wuye-ai",
+    "description": "Interact with capabilities of the CRIC Wuye AI platform, an intelligent assistant specifically for the property management industry.",
+    "category": "Property Management"
+  },
+  {
+    "name": "Cua",
+    "url": "https://github.com/trycua/cua/tree/main/libs/mcp-server",
+    "description": "MCP server for the Computer-Use Agent (CUA), allowing you to run CUA through Claude Desktop or other MCP clients.",
+    "category": "Computer Automation"
+  },
+  {
+    "name": "Currents",
+    "url": "https://github.com/currents-dev/currents-mcp",
+    "description": "Enable AI Agents to fix Playwright test failures reported to Currents.",
+    "category": "Testing & Development"
+  },
+  {
+    "name": "Dart",
+    "url": "https://github.com/its-dart/dart-mcp-server",
+    "description": "Interact with task, doc, and project data in Dart, an AI-native project management tool",
     "category": "Project Management"
   },
   {
+    "name": "DataWorks",
+    "url": "https://github.com/aliyun/alibabacloud-dataworks-mcp-server",
+    "description": "A Model Context Protocol (MCP) server that provides tools for AI, allowing it to interact with the DataWorks Open API through a standardized interface. This implementation is based on the Aliyun Open API and enables AI agents to perform cloud resources operations seamlessly.",
+    "category": "Data Processing"
+  },
+  {
+    "name": "DealX",
+    "url": "https://github.com/DealExpress/mcp-server",
+    "description": "MCP Server for DealX platform",
+    "category": "E-commerce"
+  },
+  {
+    "name": "dbt",
+    "url": "https://github.com/dbt-labs/dbt-mcp",
+    "description": "Official MCP server for dbt (data build tool) providing integration with dbt Core/Cloud CLI, project metadata discovery, model information, and semantic layer querying capabilities.",
+    "category": "Data Engineering"
+  },
+  {
+    "name": "DevHub",
+    "url": "https://github.com/devhub/devhub-cms-mcp",
+    "description": "Manage and utilize website content within the DevHub CMS platform",
+    "category": "Content Management"
+  },
+  {
+    "name": "DexPaprika",
+    "url": "https://github.com/coinpaprika/dexpaprika-mcp",
+    "description": "Access real-time DEX analytics across 20+ blockchains with DexPaprika API, tracking 5M+ tokens, pools, volumes, and historical market data. Built by CoinPaprika.",
+    "category": "Blockchain & Crypto"
+  },
+  {
+    "name": "Digma",
+    "url": "https://github.com/digma-ai/digma-mcp-server",
+    "description": "A code observability MCP enabling dynamic code analysis based on OTEL/APM data to assist in code reviews, issues identification and fix, highlighting risky code etc.",
+    "category": "Code Observability"
+  },
+  {
+    "name": "E2B",
+    "url": "https://github.com/e2b-dev/mcp-server",
+    "description": "Run code in secure sandboxes hosted by E2B",
+    "category": "Code Execution"
+  },
+  {
+    "name": "EdgeOne Pages MCP",
+    "url": "https://github.com/TencentEdgeOne/edgeone-pages-mcp",
+    "description": "An MCP service for deploying HTML content to EdgeOne Pages and obtaining a publicly accessible URL.",
+    "category": "Web Hosting"
+  },
+  {
+    "name": "EduBase",
+    "url": "https://github.com/EduBase/MCP",
+    "description": "Interact with EduBase, a comprehensive e-learning platform with advanced quizzing, exam management, and content organization capabilities",
+    "category": "Education & E-learning"
+  },
+  {
+    "name": "eSignatures",
+    "url": "https://github.com/esignaturescom/mcp-server-esignatures",
+    "description": "Contract and template management for drafting, reviewing, and sending binding contracts.",
+    "category": "Document Management"
+  },
+  {
+    "name": "ELEMENT.FM",
+    "url": "https://gitlab.com/elementfm/mcp",
+    "description": "Create and publish unlimited podcast shows and episodes with ELEMENT.FM",
+    "category": "Podcasting"
+  },
+  {
+    "name": "ElevenLabs",
+    "url": "https://github.com/elevenlabs/elevenlabs-mcp",
+    "description": "The official ElevenLabs MCP server",
+    "category": "Voice & Audio"
+  },
+  {
+    "name": "Exa",
+    "url": "https://github.com/exa-labs/exa-mcp-server",
+    "description": "Search Engine made for AIs by Exa",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Fewsats",
+    "url": "https://github.com/Fewsats/fewsats-mcp",
+    "description": "Enable AI Agents to purchase anything in a secure way using Fewsats",
+    "category": "Payment Processing"
+  },
+  {
+    "name": "Fibery",
+    "url": "https://github.com/Fibery-inc/fibery-mcp-server",
+    "description": "Perform queries and entity operations in your Fibery workspace.",
+    "category": "Project Management"
+  },
+  {
+    "name": "Financial Datasets",
+    "url": "https://github.com/financial-datasets/mcp-server",
+    "description": "Stock market API made for AI agents",
+    "category": "Financial Data"
+  },
+  {
+    "name": "Firecrawl",
+    "url": "https://github.com/mendableai/firecrawl-mcp-server",
+    "description": "Extract web data with Firecrawl",
+    "category": "Web Scraping & Content"
+  },
+  {
+    "name": "Fireproof",
+    "url": "https://github.com/fireproof-storage/mcp-database-server",
+    "description": "Immutable ledger database with live synchronization",
+    "category": "Database"
+  },
+  {
     "name": "GitHub",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
-    "description": "GitHub repository management and interaction",
+    "url": "https://github.com/github/github-mcp-server",
+    "description": "GitHub's official MCP Server",
     "category": "Version Control"
   },
   {
-    "name": "Gmail",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gmail",
-    "description": "Email management and automation",
-    "category": "Productivity"
+    "name": "Gitee",
+    "url": "https://github.com/oschina/mcp-gitee",
+    "description": "Gitee API integration, repository, issue, and pull request management, and more.",
+    "category": "Version Control"
   },
   {
-    "name": "Google Calendar",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-calendar",
-    "description": "Calendar event management and scheduling",
-    "category": "Productivity"
+    "name": "Globalping",
+    "url": "https://github.com/jsdelivr/globalping-mcp-server",
+    "description": "Network access with the ability to run commands like ping, traceroute, mtr, http, dns resolve.",
+    "category": "Network Tools"
+  },
+  {
+    "name": "gotoHuman",
+    "url": "https://github.com/gotohuman/gotohuman-mcp-server",
+    "description": "Human-in-the-loop platform - Allow AI agents and automations to send requests for approval to your gotoHuman inbox.",
+    "category": "Human Oversight"
+  },
+  {
+    "name": "Grafana",
+    "url": "https://github.com/grafana/mcp-grafana",
+    "description": "Search dashboards, investigate incidents and query datasources in your Grafana instance",
+    "category": "Monitoring & Dashboards"
+  },
+  {
+    "name": "Graphlit",
+    "url": "https://github.com/graphlit/graphlit-mcp-server",
+    "description": "Ingest anything from Slack to Gmail to podcast feeds, in addition to web crawling, into a searchable Graphlit project.",
+    "category": "Knowledge Management"
+  },
+  {
+    "name": "GreptimeDB",
+    "url": "https://github.com/GreptimeTeam/greptimedb-mcp-server",
+    "description": "Provides AI assistants with a secure and structured way to explore and analyze data in GreptimeDB.",
+    "category": "Time Series Database"
   }
 ]
