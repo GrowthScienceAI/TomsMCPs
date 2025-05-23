@@ -1,0 +1,194 @@
+[
+  {
+    "name": "Brave Search",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search",
+    "description": "Web and local search using Brave's Search API",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Fetch",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+    "description": "Web content fetching and conversion for efficient LLM usage",
+    "category": "Web Scraping & Content"
+  },
+  {
+    "name": "Filesystem",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+    "description": "Secure file operations with configurable access controls",
+    "category": "File Management"
+  },
+  {
+    "name": "Git",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+    "description": "Tools to read, search, and manipulate Git repositories",
+    "category": "Version Control"
+  },
+  {
+    "name": "GitLab",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gitlab",
+    "description": "GitLab API, enabling project management",
+    "category": "Version Control"
+  },
+  {
+    "name": "Google Drive",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    "description": "File access and search capabilities for Google Drive",
+    "category": "Cloud Storage"
+  },
+  {
+    "name": "Google Maps",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps",
+    "description": "Location services, directions, and business information",
+    "category": "Maps & Location"
+  },
+  {
+    "name": "Google Search",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-search",
+    "description": "Web search using Google's Search API",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Langchain",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/langchain",
+    "description": "Simplified LangChain integration for AI development",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Langfuse",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/langfuse",
+    "description": "Tracing and monitoring for LLM applications",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Notion",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/notion",
+    "description": "Connection to Notion databases and pages",
+    "category": "Knowledge Base"
+  },
+  {
+    "name": "Open Library",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/open-library",
+    "description": "Book information from the Open Library API",
+    "category": "Knowledge Base"
+  },
+  {
+    "name": "PGVector",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/pgvector",
+    "description": "Semantic search with PostgreSQL and the pgvector extension",
+    "category": "Database"
+  },
+  {
+    "name": "Pinecone",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/pinecone",
+    "description": "Vector database for similarity search and retrieval",
+    "category": "Database"
+  },
+  {
+    "name": "Python Runner",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/python-runner",
+    "description": "Secure Python code execution environment",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Qdrant",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/qdrant",
+    "description": "Vector database for efficient similarity search",
+    "category": "Database"
+  },
+  {
+    "name": "Redis",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/redis",
+    "description": "In-memory data structure store supporting simple key-value and complex data structures",
+    "category": "Database"
+  },
+  {
+    "name": "Retriever",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/retriever",
+    "description": "Document retrieval with hierarchical passages for accurate context",
+    "category": "Knowledge Base"
+  },
+  {
+    "name": "Scraper",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/scraper",
+    "description": "Universal web scraping with content extraction and parsing",
+    "category": "Web Scraping & Content"
+  },
+  {
+    "name": "Searxng",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/searxng",
+    "description": "Privacy-respecting metasearch engine",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Slack",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
+    "description": "Slack messaging and workflow automation",
+    "category": "Messaging"
+  },
+  {
+    "name": "Spotify",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/spotify",
+    "description": "Music search and playlist management",
+    "category": "API Integration"
+  },
+  {
+    "name": "SQLite",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+    "description": "Lightweight SQL database operations",
+    "category": "Database"
+  },
+  {
+    "name": "Translator",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/translator",
+    "description": "Language translation services",
+    "category": "Language & Translation"
+  },
+  {
+    "name": "Weather",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/weather",
+    "description": "Current weather conditions and forecasts",
+    "category": "API Integration"
+  },
+  {
+    "name": "Wikipedia",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/wikipedia",
+    "description": "Wikipedia search and content access",
+    "category": "Knowledge Base"
+  },
+  {
+    "name": "Youtube",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/youtube",
+    "description": "YouTube video search and metadata",
+    "category": "Web Scraping & Content"
+  },
+  {
+    "name": "Anthropic",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/anthropic",
+    "description": "Integration with Anthropic's Claude models",
+    "category": "API Integration"
+  },
+  {
+    "name": "Asana",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/asana",
+    "description": "Task and project management with Asana",
+    "category": "Project Management"
+  },
+  {
+    "name": "GitHub",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+    "description": "GitHub repository management and interaction",
+    "category": "Version Control"
+  },
+  {
+    "name": "Gmail",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gmail",
+    "description": "Email management and automation",
+    "category": "Productivity"
+  },
+  {
+    "name": "Google Calendar",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-calendar",
+    "description": "Calendar event management and scheduling",
+    "category": "Productivity"
+  }
+]

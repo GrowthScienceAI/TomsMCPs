@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Servers Directory - Find Awesome MCP Servers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">MCP Servers</a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">MCP Directory</a></li>
+                    <li><a href="https://toms-tools.com" target="_blank">TomsTools</a></li>
+                    <li><a href="https://siteskim.app/" target="_blank">SiteSkim AI</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            <div class="server-count" id="serverCount">Loading...</div>
+            <h1>Find Awesome MCP Servers</h1>
+            <p>The largest collection of MCP Servers for AI automation and integration</p>
+        </div>
+    </div>
+
+    <div class="search-filters">
+        <div class="container">
+            <div class="search-bar">
+                <div class="search-icon">🔍</div>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search MCP servers...">
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="all">All Servers</div>
+                <div class="tab" data-tab="featured">Featured</div>
+                <div class="tab" data-tab="database">Database</div>
+                <div class="tab" data-tab="search">Search</div>
+                <div class="tab" data-tab="project">Project Mgmt</div>
+                <div class="tab" data-tab="development">Development</div>
+                <div class="tab" data-tab="cloud">Cloud</div>
+            </div>
+
+            <div class="filters">
+                <select class="filter-select" id="categoryFilter">
+                    <option value="">All Categories</option>
+                </select>
+                <div class="results-info" id="resultsInfo">
+                    Loading servers...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="servers-section">
+        <div class="container">
+            <div class="servers-grid" id="serversGrid">
+                <div class="loading">Loading MCP servers...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
