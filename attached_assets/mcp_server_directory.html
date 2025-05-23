@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Servers Directory - Find Awesome MCP Servers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #E7F2FF;
+            color: #162B56;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #d1e7ff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(22, 43, 86, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #162B56;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #5790F4;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #162B56;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            border-bottom: 1px solid #d1e7ff;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #162B56 0%, #5790F4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #5790F4;
+            margin-bottom: 2rem;
+        }
+
+        .server-count {
+            display: inline-block;
+            background: #5790F4;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        /* Search and Filters */
+        .search-filters {
+            background: #ffffff;
+            padding: 2rem 0;
+            border-bottom: 1px solid #d1e7ff;
+        }
+
+        .search-bar {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            background: #f8fbff;
+            border: 2px solid #d1e7ff;
+            border-radius: 8px;
+            color: #162B56;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #5790F4;
+        }
+
+        .search-input::placeholder {
+            color: #5790F4;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #5790F4;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: #f8fbff;
+            border: 2px solid #d1e7ff;
+            border-radius: 6px;
+            color: #5790F4;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tab:hover,
+        .tab.active {
+            background: #5790F4;
+            color: #ffffff;
+            border-color: #5790F4;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            background: #f8fbff;
+            border: 2px solid #d1e7ff;
+            border-radius: 6px;
+            color: #162B56;
+            font-size: 0.9rem;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #5790F4;
+        }
+
+        .results-info {
+            color: #5790F4;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Server Grid */
+        .servers-section {
+            padding: 2rem 0;
+        }
+
+        .servers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .server-card {
+            background: #ffffff;
+            border: 2px solid #d1e7ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(22, 43, 86, 0.05);
+        }
+
+        .server-card:hover {
+            border-color: #5790F4;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(87, 144, 244, 0.15);
+        }
+
+        .server-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .server-info {
+            flex: 1;
+        }
+
+        .server-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #162B56;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .server-category {
+            display: inline-block;
+            background: #f0f8ff;
+            color: #5790F4;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #d1e7ff;
+        }
+
+        .server-description {
+            color: #5790F4;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .server-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #d1e7ff;
+        }
+
+        .server-url {
+            color: #5790F4;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .server-url:hover {
+            color: #162B56;
+        }
+
+        .github-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.8;
+        }
+
+        /* Category Colors */
+        .category-database { background: #e3f2fd; color: #1565c0; border-color: #bbdefb; }
+        .category-search { background: #f1f8e9; color: #558b2f; border-color: #c8e6c9; }
+        .category-project { background: #fff3e0; color: #ef6c00; border-color: #ffcc02; }
+        .category-knowledge { background: #f3e5f5; color: #7b1fa2; border-color: #ce93d8; }
+        .category-web { background: #e0f2f1; color: #00695c; border-color: #80cbc4; }
+        .category-cloud { background: #e8f5e8; color: #2e7d32; border-color: #a5d6a7; }
+        .category-development { background: #ffebee; color: #c62828; border-color: #ef9a9a; }
+        .category-workflow { background: #f8e7fc; color: #6a1b9a; border-color: #d1c4e9; }
+
+        /* Loading and Empty States */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #5790F4;
+            font-weight: 500;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #5790F4;
+        }
+
+        .no-results h3 {
+            margin-bottom: 1rem;
+            color: #162B56;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .tabs {
+                justify-content: center;
+            }
+
+            .servers-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .filters {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">MCP Servers</a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">MCP Directory</a></li>
+                    <li><a href="https://toms-tools.com" target="_blank">TomsTools</a></li>
+                    <li><a href="https://siteskim.app/" target="_blank">SiteSkim AI</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            <div class="server-count" id="serverCount">322 Indexed</div>
+            <h1>Find Awesome MCP Servers</h1>
+            <p>The largest collection of MCP Servers for AI automation and integration</p>
+        </div>
+    </div>
+
+    <div class="search-filters">
+        <div class="container">
+            <div class="search-bar">
+                <div class="search-icon">🔍</div>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search MCP servers...">
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="all">All Servers</div>
+                <div class="tab" data-tab="featured">Featured</div>
+                <div class="tab" data-tab="database">Database</div>
+                <div class="tab" data-tab="search">Search</div>
+                <div class="tab" data-tab="project">Project Mgmt</div>
+                <div class="tab" data-tab="development">Development</div>
+                <div class="tab" data-tab="cloud">Cloud</div>
+            </div>
+
+            <div class="filters">
+                <select class="filter-select" id="categoryFilter">
+                    <option value="">All Categories</option>
+                </select>
+                <div class="results-info" id="resultsInfo">
+                    Showing all 322 servers
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="servers-section">
+        <div class="container">
+            <div class="servers-grid" id="serversGrid">
+                <div class="loading">Loading MCP servers...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Embedded MCP Servers Data
+        const mcpServersData = [
+  {
+    "name": "Brave Search",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search",
+    "description": "Web and local search using Brave's Search API",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Fetch",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+    "description": "Web content fetching and conversion for efficient LLM usage",
+    "category": "Web Scraping & Content"
+  },
+  {
+    "name": "Filesystem",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+    "description": "Secure file operations with configurable access controls",
+    "category": "File Management"
+  },
+  {
+    "name": "Git",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+    "description": "Tools to read, search, and manipulate Git repositories",
+    "category": "Version Control"
+  },
+  {
+    "name": "GitLab",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gitlab",
+    "description": "GitLab API, enabling project management",
+    "category": "Version Control"
+  },
+  {
+    "name": "Google Drive",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    "description": "File access and search capabilities for Google Drive",
+    "category": "Cloud Storage"
+  },
+  {
+    "name": "Google Maps",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps",
+    "description": "Location services, directions, and business information",
+    "category": "Maps & Location"
+  },
+  {
+    "name": "Memory",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+    "description": "Persistent memory management for LLM applications",
+    "category": "AI Thinking Tools"
+  },
+  {
+    "name": "PostgreSQL",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres",
+    "description": "Tools for querying and analyzing PostgreSQL databases",
+    "category": "Database"
+  },
+  {
+    "name": "Puppeteer",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer",
+    "description": "Browser automation for web scraping and testing",
+    "category": "Web Automation"
+  },
+  {
+    "name": "Sentry",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sentry",
+    "description": "Error monitoring and performance tracking",
+    "category": "Error Monitoring"
+  },
+  {
+    "name": "Slack",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
+    "description": "Team communication and workspace management",
+    "category": "Team Communication"
+  },
+  {
+    "name": "SQLite",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+    "description": "Lightweight database operations and queries",
+    "category": "Database"
+  },
+  {
+    "name": "Sequential Thinking",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+    "description": "Structured reasoning and thought organization",
+    "category": "AI Thinking Tools"
+  },
+  {
+    "name": "Everything",
+    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+    "description": "Universal file search and indexing capabilities",
+    "category": "File Search"
+  },
+  {
+    "name": "Kubernetes",
+    "url": "https://github.com/ModelContextProtocol/kubernetes-mcp-server",
+    "description": "Container orchestration and cluster management",
+    "category": "Container Orchestration"
+  },
+  {
+    "name": "AWS",
+    "url": "https://github.com/MarkusPfundstein/mcp-aws",
+    "description": "Amazon Web Services cloud platform integration",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "Linear",
+    "url": "https://github.com/jerhadf/linear-mcp-server",
+    "description": "Issue tracking and project management platform",
+    "category": "Project Management"
+  },
+  {
+    "name": "GitHub",
+    "url": "https://github.com/punkpeye/github-mcp-server",
+    "description": "Version control and collaboration platform",
+    "category": "Version Control"
+  },
+  {
+    "name": "TimeDoctor",
+    "url": "https://github.com/kimtaeyoon83/timedoctor-mcp-server",
+    "description": "Time tracking and productivity monitoring",
+    "category": "Project Management"
+  },
+  {
+    "name": "Spotify",
+    "url": "https://github.com/varunneal/spotify-mcp",
+    "description": "Music streaming and playlist management",
+    "category": "Media Generation"
+  },
+  {
+    "name": "Todoist",
+    "url": "https://github.com/abhiz123/todoist-mcp-server",
+    "description": "Task management and productivity platform",
+    "category": "Project Management"
+  },
+  {
+    "name": "YouTube",
+    "url": "https://github.com/modelcontextprotocol/youtube-transcript",
+    "description": "Video content analysis and transcript extraction",
+    "category": "Video Platform"
+  },
+  {
+    "name": "MySQL",
+    "url": "https://github.com/designcomputer/mysql_mcp_server",
+    "description": "Relational database management and operations",
+    "category": "Database"
+  },
+  {
+    "name": "Redis",
+    "url": "https://github.com/JohnnyBravo10/redis-mcp-server",
+    "description": "In-memory data structure store and caching",
+    "category": "Database"
+  },
+  {
+    "name": "ClickHouse",
+    "url": "https://github.com/JohnnyBravo10/clickhouse-mcp-server",
+    "description": "Columnar database for analytics and OLAP",
+    "category": "Database"
+  },
+  {
+    "name": "Jira",
+    "url": "https://github.com/mford7998/mcp-jira-server",
+    "description": "Issue tracking and agile project management",
+    "category": "Project Management"
+  },
+  {
+    "name": "Perplexity",
+    "url": "https://github.com/soraliu/mcp-perplexity",
+    "description": "AI-powered search and research platform",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Raygun",
+    "url": "https://github.com/MindscapeHQ/mcp-server-raygun",
+    "description": "Application performance monitoring and error tracking",
+    "category": "Error Monitoring"
+  },
+  {
+    "name": "BigQuery",
+    "url": "https://github.com/ergut/bigquery-mcp-server",
+    "description": "Google Cloud data warehouse and analytics",
+    "category": "Data Warehousing"
+  },
+  {
+    "name": "MongoDB",
+    "url": "https://github.com/kilicmu/mongodb-mcp-server",
+    "description": "NoSQL document-oriented database",
+    "category": "Database"
+  },
+  {
+    "name": "Notion",
+    "url": "https://github.com/v-v/notion-mcp-server",
+    "description": "All-in-one workspace and knowledge management",
+    "category": "Knowledge Management"
+  },
+  {
+    "name": "TradingView",
+    "url": "https://github.com/bvdmitri/mcp-tradingview",
+    "description": "Financial markets analysis and charting",
+    "category": "Financial Data"
+  },
+  {
+    "name": "Terminal",
+    "url": "https://github.com/whoeven99/mcp-terminal-server",
+    "description": "Command line interface and shell operations",
+    "category": "Command Line & Terminal"
+  },
+  {
+    "name": "Cloudflare",
+    "url": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "description": "Content delivery network and web infrastructure",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "Docker",
+    "url": "https://github.com/wgnr/mcp-docker",
+    "description": "Container platform and application deployment",
+    "category": "Container Orchestration"
+  },
+  {
+    "name": "Anthropic MCP Inspector",
+    "url": "https://github.com/anthropics/mcp-inspector",
+    "description": "Development tools for MCP server inspection and debugging",
+    "category": "MCP Development"
+  },
+  {
+    "name": "Airtable",
+    "url": "https://github.com/ap-1/airtable-mcp",
+    "description": "Cloud-based database and collaboration platform",
+    "category": "Database"
+  },
+  {
+    "name": "Obsidian",
+    "url": "https://github.com/calclavia/mcp-obsidian",
+    "description": "Knowledge management and note-taking platform",
+    "category": "Knowledge Management"
+  },
+  {
+    "name": "Azure",
+    "url": "https://github.com/microsoft/mcp-azure",
+    "description": "Microsoft Azure cloud services integration",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "Pinecone",
+    "url": "https://github.com/pinecone-io/mcp-pinecone",
+    "description": "Vector database for AI applications",
+    "category": "Vector Database"
+  },
+  {
+    "name": "Exa",
+    "url": "https://github.com/exa-labs/exa-mcp-server",
+    "description": "AI-powered web search and knowledge retrieval",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Replit",
+    "url": "https://github.com/replit/mcp-replit",
+    "description": "Online IDE and collaborative coding platform",
+    "category": "Code Editor & Development"
+  },
+  {
+    "name": "Google",
+    "url": "https://github.com/varunneal/google-mcp",
+    "description": "Google services and API integrations",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Postgres URL Fetcher",
+    "url": "https://github.com/rusiaaman/postgres-url-fetch-server",
+    "description": "Database connection and URL-based data fetching",
+    "category": "Database"
+  },
+  {
+    "name": "Qdrant",
+    "url": "https://github.com/qdrant/mcp-server-qdrant",
+    "description": "Vector database for similarity search",
+    "category": "Vector Database"
+  },
+  {
+    "name": "Stripe",
+    "url": "https://github.com/lilyreese/stripe-mcp-server",
+    "description": "Payment processing and financial transactions",
+    "category": "Payment Processing"
+  },
+  {
+    "name": "Twilio",
+    "url": "https://github.com/MarkusPfundstein/mcp-twilio",
+    "description": "Communication platform for SMS, voice, and video",
+    "category": "Team Communication"
+  },
+  {
+    "name": "Chrome Extensions",
+    "url": "https://github.com/mrjackdavis/mcp-browser-automation",
+    "description": "Browser automation and extension management",
+    "category": "Web Automation"
+  },
+  {
+    "name": "Weaviate",
+    "url": "https://github.com/weaviate/mcp-weaviate",
+    "description": "Vector database with built-in vectorization",
+    "category": "Vector Database"
+  },
+  {
+    "name": "Neon",
+    "url": "https://github.com/neondatabase/mcp-server-neon",
+    "description": "Serverless PostgreSQL database platform",
+    "category": "Database"
+  },
+  {
+    "name": "Confluence",
+    "url": "https://github.com/andybrandt/mcp-confluence",
+    "description": "Team collaboration and knowledge sharing",
+    "category": "Knowledge Management"
+  },
+  {
+    "name": "Snowflake",
+    "url": "https://github.com/wbrcurtis/mcp-snowflake",
+    "description": "Cloud data platform and data warehouse",
+    "category": "Data Warehousing"
+  },
+  {
+    "name": "Claude Desktop",
+    "url": "https://github.com/mcp-get/mcp-client",
+    "description": "Claude AI desktop application with MCP support",
+    "category": "MCP Client"
+  },
+  {
+    "name": "Search1API",
+    "url": "https://github.com/fatwang2/search1api-mcp",
+    "description": "Unified search API across multiple search engines",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Llama Cloud",
+    "url": "https://github.com/run-llama/mcp-llamacloud",
+    "description": "LlamaIndex cloud platform for RAG applications",
+    "category": "AI Models & APIs"
+  },
+  {
+    "name": "FastAPI",
+    "url": "https://github.com/wong2/fastapi-mcp",
+    "description": "Modern web framework for building APIs",
+    "category": "API Services"
+  },
+  {
+    "name": "Tana",
+    "url": "https://github.com/zencode1/tana-mcp-server",
+    "description": "Knowledge management and note-taking platform",
+    "category": "Knowledge Management"
+  },
+  {
+    "name": "Monday",
+    "url": "https://github.com/TechInTech/monday-mcp-server",
+    "description": "Work operating system and project management",
+    "category": "Project Management"
+  },
+  {
+    "name": "ClickUp",
+    "url": "https://github.com/TechInTech/clickup-mcp-server",
+    "description": "All-in-one productivity and project management",
+    "category": "Project Management"
+  },
+  {
+    "name": "Asana",
+    "url": "https://github.com/TechInTech/asana-mcp-server",
+    "description": "Team collaboration and task management",
+    "category": "Project Management"
+  },
+  {
+    "name": "HTTP",
+    "url": "https://github.com/felixbrock/http-mcp",
+    "description": "HTTP client for API requests and web interactions",
+    "category": "API Services"
+  },
+  {
+    "name": "OpenAI",
+    "url": "https://github.com/KillianLucas/openai-mcp-server",
+    "description": "OpenAI API integration for AI model access",
+    "category": "AI Models & APIs"
+  },
+  {
+    "name": "HubSpot",
+    "url": "https://github.com/rusiaaman/hubspot-mcp-server",
+    "description": "Customer relationship management and marketing",
+    "category": "CRM"
+  },
+  {
+    "name": "Retell",
+    "url": "https://github.com/retell-ai/retell-mcp-server",
+    "description": "Voice AI and conversational phone calls",
+    "category": "Voice & Audio"
+  },
+  {
+    "name": "Bash",
+    "url": "https://github.com/isaacwasserman/bash-mcp",
+    "description": "Shell scripting and command execution",
+    "category": "Command Line Tools"
+  },
+  {
+    "name": "Postgres Migrator",
+    "url": "https://github.com/rusiaaman/postgres-schema-migrator",
+    "description": "Database schema migration and management",
+    "category": "Database Management"
+  },
+  {
+    "name": "Finance Data",
+    "url": "https://github.com/rusiaaman/mcp-finance-data",
+    "description": "Financial data and market information access",
+    "category": "Financial Data & Analytics"
+  },
+  {
+    "name": "MCP Get",
+    "url": "https://github.com/mcp-get/mcp-get",
+    "description": "Package manager for MCP servers",
+    "category": "MCP Server Management"
+  },
+  {
+    "name": "Desktop Automation",
+    "url": "https://github.com/BlueStarAI/desktop-automation",
+    "description": "Automated desktop interactions and control",
+    "category": "Desktop Automation"
+  },
+  {
+    "name": "D&D",
+    "url": "https://github.com/TezzaSol/mcp-dnd",
+    "description": "Dungeons & Dragons game content and rules",
+    "category": "Gaming & E-sports"
+  },
+  {
+    "name": "Roam Research",
+    "url": "https://github.com/sammcj/mcp-roam-research",
+    "description": "Connected note-taking and knowledge graphs",
+    "category": "Note Taking & Knowledge Base"
+  },
+  {
+    "name": "GitHub MCP Server",
+    "url": "https://github.com/rusiaaman/github-mcp-server",
+    "description": "Enhanced GitHub integration with advanced features",
+    "category": "Version Control"
+  },
+  {
+    "name": "Pandoc",
+    "url": "https://github.com/vivekVells/mcp-pandoc",
+    "description": "Universal document converter and processor",
+    "category": "Document Conversion"
+  },
+  {
+    "name": "Temporal",
+    "url": "https://github.com/temporalio/mcp-temporal",
+    "description": "Workflow orchestration and distributed systems",
+    "category": "Workflow Automation"
+  },
+  {
+    "name": "Shell",
+    "url": "https://github.com/metalbear-co/shell-mcp",
+    "description": "Shell command execution and automation",
+    "category": "Command Line & Terminal"
+  },
+  {
+    "name": "Eve",
+    "url": "https://github.com/MindscapeHQ/mcp-server-eve",
+    "description": "Human feedback and oversight for AI applications",
+    "category": "Human Feedback & Oversight"
+  },
+  {
+    "name": "Gmail",
+    "url": "https://github.com/MarkusPfundstein/mcp-gsuite",
+    "description": "Email management and Google Workspace integration",
+    "category": "Email"
+  },
+  {
+    "name": "Supabase",
+    "url": "https://github.com/jlowin/mcp-supabase",
+    "description": "Open source Firebase alternative",
+    "category": "Backend & Database"
+  },
+  {
+    "name": "E2B",
+    "url": "https://github.com/e2b-dev/mcp-e2b",
+    "description": "AI code execution and sandboxed environments",
+    "category": "Code Execution"
+  },
+  {
+    "name": "Appium",
+    "url": "https://github.com/AppiumTestDistribution/appium-mcp-server",
+    "description": "Mobile device management and automation",
+    "category": "Mobile Device Management"
+  },
+  {
+    "name": "NVD",
+    "url": "https://github.com/AnalogFolk/mcp-nvd",
+    "description": "National Vulnerability Database security information",
+    "category": "Security & Compliance"
+  },
+  {
+    "name": "Elasticsearch",
+    "url": "https://github.com/snakajima/mcp-elasticsearch",
+    "description": "Distributed search and analytics engine",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Raycast",
+    "url": "https://github.com/pomdtr/raycast-mcp",
+    "description": "Productivity launcher and automation tool",
+    "category": "Computer Automation"
+  },
+  {
+    "name": "TradingPost",
+    "url": "https://github.com/ianb/mcp-tradingpost",
+    "description": "Trading platform and financial market access",
+    "category": "Finance & Payments"
+  },
+  {
+    "name": "Express",
+    "url": "https://github.com/evalexpr/mcp-eval",
+    "description": "Expression evaluation and mathematical computation",
+    "category": "Expression Evaluation"
+  },
+  {
+    "name": "Firebase",
+    "url": "https://github.com/Firebase-MCP/firebase-mcp-server",
+    "description": "Google's mobile and web application platform",
+    "category": "Backend & Database"
+  },
+  {
+    "name": "Chroma",
+    "url": "https://github.com/chroma-core/mcp-chroma",
+    "description": "AI-native open-source vector database",
+    "category": "Vector Database & RAG"
+  },
+  {
+    "name": "Drupal",
+    "url": "https://github.com/JohnAlbin/mcp-drupal",
+    "description": "Content management system and framework",
+    "category": "Content Management System"
+  },
+  {
+    "name": "Milvus",
+    "url": "https://github.com/milvus-io/mcp-milvus",
+    "description": "Vector database for AI applications",
+    "category": "Vector Database"
+  },
+  {
+    "name": "Shopify",
+    "url": "https://github.com/Shopify/mcp-shopify",
+    "description": "E-commerce platform and online store management",
+    "category": "E-commerce"
+  },
+  {
+    "name": "AnyAPI",
+    "url": "https://github.com/CopilotKit/mcp-anyapi",
+    "description": "Universal API integration platform",
+    "category": "API Integration Platform"
+  },
+  {
+    "name": "GitHub Issues",
+    "url": "https://github.com/pierrebrunelle/mcp-github-issues",
+    "description": "GitHub issue tracking and management",
+    "category": "Project Management"
+  },
+  {
+    "name": "AWS IoT",
+    "url": "https://github.com/IoTDirectives/mcp-iot",
+    "description": "Internet of Things device management",
+    "category": "IoT & Smart Home"
+  },
+  {
+    "name": "Bluesky",
+    "url": "https://github.com/bluesky-social/mcp-bluesky",
+    "description": "Decentralized social networking platform",
+    "category": "Social Media"
+  },
+  {
+    "name": "OpenRouter",
+    "url": "https://github.com/sammcj/mcp-openrouter",
+    "description": "AI model routing and load balancing",
+    "category": "AI Models & APIs"
+  },
+  {
+    "name": "Tavily",
+    "url": "https://github.com/tavily-ai/mcp-tavily",
+    "description": "Search API for AI agents and research",
+    "category": "Search & Research"
+  },
+  {
+    "name": "LanceDB",
+    "url": "https://github.com/lancedb/lancedb-mcp-server",
+    "description": "Vector database for AI applications",
+    "category": "Vector Database & RAG"
+  },
+  {
+    "name": "Microsoft 365",
+    "url": "https://github.com/microsoft/mcp-outlook-calendar",
+    "description": "Microsoft Office suite and productivity tools",
+    "category": "Office Suite"
+  },
+  {
+    "name": "Apple Notes",
+    "url": "https://github.com/DarylRoberts/apple-notes-mcp",
+    "description": "Apple's note-taking application integration",
+    "category": "Note Taking"
+  },
+  {
+    "name": "Shorten.REST",
+    "url": "https://github.com/JackBlair87/ShortenREST-MCP",
+    "description": "URL shortening and link management service",
+    "category": "Web Services"
+  },
+  {
+    "name": "Database Management",
+    "url": "https://github.com/Ejb503/multibase-mcp-server",
+    "description": "Multi-database management and operations",
+    "category": "Database & SQL"
+  },
+  {
+    "name": "Logfire",
+    "url": "https://github.com/pydantic/mcp-logfire",
+    "description": "Application logging and monitoring platform",
+    "category": "Monitoring & Dashboards"
+  },
+  {
+    "name": "Google Sheets",
+    "url": "https://github.com/humanloop/mcp-google-sheets",
+    "description": "Spreadsheet application and data analysis",
+    "category": "Spreadsheet & Data Analysis"
+  },
+  {
+    "name": "Sourcegraph",
+    "url": "https://github.com/sourcegraph/mcp-sourcegraph",
+    "description": "Code search and navigation platform",
+    "category": "Code Analysis"
+  },
+  {
+    "name": "Godot",
+    "url": "https://github.com/TASallin/mcp-godot",
+    "description": "Game development engine and tools",
+    "category": "Game Development"
+  },
+  {
+    "name": "Codebase",
+    "url": "https://github.com/likenneth/codebase_mcp",
+    "description": "Code repository management and analysis",
+    "category": "Code Analysis"
+  },
+  {
+    "name": "Tavily Search",
+    "url": "https://github.com/tavily-ai/mcp-tavily-search",
+    "description": "Advanced search capabilities for AI applications",
+    "category": "Search & RAG"
+  },
+  {
+    "name": "Terminal Calculator",
+    "url": "https://github.com/adhikasp/bc-calculator-mcp",
+    "description": "Mathematical calculations and computations",
+    "category": "Calculator & Math"
+  },
+  {
+    "name": "Zoom",
+    "url": "https://github.com/TASallin/mcp-zoom",
+    "description": "Video conferencing and communication platform",
+    "category": "Team Communication"
+  },
+  {
+    "name": "GitHub Advanced",
+    "url": "https://github.com/adhikasp/github-mcp",
+    "description": "Advanced GitHub integration and automation",
+    "category": "Version Control"
+  },
+  {
+    "name": "Solana",
+    "url": "https://github.com/solana-labs/mcp-solana",
+    "description": "Solana blockchain and cryptocurrency platform",
+    "category": "Blockchain & Crypto"
+  },
+  {
+    "name": "Anthropic Webtools",
+    "url": "https://github.com/anthropics/mcp-webtools",
+    "description": "Web development and browser automation tools",
+    "category": "Web Development & CMS"
+  },
+  {
+    "name": "Pocket",
+    "url": "https://github.com/cktang88/pocket-mcp-server",
+    "description": "Read-later service and content curation",
+    "category": "Content Management"
+  },
+  {
+    "name": "Cursor",
+    "url": "https://github.com/ktanaka101/cursor-mcp",
+    "description": "AI-powered code editor and development",
+    "category": "Code Editor & Development"
+  },
+  {
+    "name": "MATLAB",
+    "url": "https://github.com/mathworks/mcp-matlab",
+    "description": "Technical computing and data analysis platform",
+    "category": "Data Analysis"
+  },
+  {
+    "name": "CTGC",
+    "url": "https://github.com/Kenobi-Knobs/mcp-ctgc",
+    "description": "Context-aware test generation and code coverage",
+    "category": "Testing & Development"
+  },
+  {
+    "name": "Vercel",
+    "url": "https://github.com/vercel/mcp-vercel",
+    "description": "Frontend cloud platform and deployment",
+    "category": "Web Hosting"
+  },
+  {
+    "name": "PlanetScale",
+    "url": "https://github.com/planetscale/mcp-planetscale",
+    "description": "Serverless MySQL database platform",
+    "category": "Cloud Database"
+  },
+  {
+    "name": "Seer",
+    "url": "https://github.com/adhikasp/seer-mcp",
+    "description": "AI-powered insights and analytics platform",
+    "category": "Data Analytics"
+  },
+  {
+    "name": "BrowserBase",
+    "url": "https://github.com/browserbase/mcp-browserbase",
+    "description": "Browser automation and web scraping platform",
+    "category": "Web Automation"
+  },
+  {
+    "name": "Pocketbase",
+    "url": "https://github.com/Ejb503/pocketbase-mcp-server",
+    "description": "Backend as a Service with real-time database",
+    "category": "Backend & Database"
+  },
+  {
+    "name": "Xero",
+    "url": "https://github.com/sirmews/xero-mcp-server",
+    "description": "Accounting software and financial management",
+    "category": "Accounting & Finance"
+  },
+  {
+    "name": "Atlassian AI",
+    "url": "https://github.com/JeromeTH/mcp-atlassian",
+    "description": "Atlassian suite integration and automation",
+    "category": "Project Management"
+  },
+  {
+    "name": "Instagram Basic Display",
+    "url": "https://github.com/reese-allison/mcp-instagram-basic-display",
+    "description": "Instagram content and profile management",
+    "category": "Social Media"
+  },
+  {
+    "name": "BrowserBase",
+    "url": "https://github.com/browserbased/mcp-browserbase",
+    "description": "Cloud browser automation platform",
+    "category": "Browser Automation"
+  },
+  {
+    "name": "InfluxDB",
+    "url": "https://github.com/influxdata/mcp-influxdb",
+    "description": "Time series database and analytics",
+    "category": "Time Series Database"
+  },
+  {
+    "name": "Zapier",
+    "url": "https://github.com/Ejb503/zapier-mcp-server",
+    "description": "Automation platform for app integrations",
+    "category": "Integration Platform"
+  },
+  {
+    "name": "PDFPig",
+    "url": "https://github.com/kevinnio/mcp-pdfpig",
+    "description": "PDF processing and document manipulation",
+    "category": "Document Management"
+  },
+  {
+    "name": "Rollbar",
+    "url": "https://github.com/rollbar/mcp-rollbar",
+    "description": "Error monitoring and exception tracking",
+    "category": "Error Monitoring"
+  },
+  {
+    "name": "HackerNews",
+    "url": "https://github.com/rusiaaman/hackernews-mcp-server",
+    "description": "Hacker News content and discussion access",
+    "category": "News & Media"
+  },
+  {
+    "name": "KeePass",
+    "url": "https://github.com/4rtemis-4rrow/mcp-kee",
+    "description": "Password management and security",
+    "category": "Security & Compliance"
+  },
+  {
+    "name": "PagerDuty",
+    "url": "https://github.com/pagerduty/mcp-pagerduty",
+    "description": "Incident management and response platform",
+    "category": "Incident Management"
+  },
+  {
+    "name": "BrowserBase",
+    "url": "https://github.com/browserbase/mcp-browserbase",
+    "description": "Headless browser automation service",
+    "category": "Web Automation"
+  },
+  {
+    "name": "Anthropic Quickjs",
+    "url": "https://github.com/anthropics/mcp-quickjs",
+    "description": "JavaScript execution environment",
+    "category": "Code Execution"
+  },
+  {
+    "name": "Matrix",
+    "url": "https://github.com/matrix-org/mcp-matrix",
+    "description": "Decentralized communication protocol",
+    "category": "Messaging & Communication"
+  },
+  {
+    "name": "Buildkite",
+    "url": "https://github.com/buildkite/mcp-buildkite",
+    "description": "Continuous integration and deployment",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Pushover",
+    "url": "https://github.com/VikParuchuri/pushover-mcp",
+    "description": "Real-time notifications and messaging",
+    "category": "Messaging & Communication"
+  },
+  {
+    "name": "1Password",
+    "url": "https://github.com/1Password/mcp-onepassword",
+    "description": "Password management and security platform",
+    "category": "Security & Compliance"
+  },
+  {
+    "name": "Discord",
+    "url": "https://github.com/Ejb503/discord-mcp-server",
+    "description": "Voice and text communication platform",
+    "category": "Team Communication"
+  },
+  {
+    "name": "WhatsApp Business",
+    "url": "https://github.com/VikParuchuri/whatsapp-mcp",
+    "description": "Business messaging and customer communication",
+    "category": "Messaging & Communication"
+  },
+  {
+    "name": "Anthropic Computer",
+    "url": "https://github.com/anthropics/mcp-computer",
+    "description": "Computer automation and control",
+    "category": "Computer Automation"
+  },
+  {
+    "name": "YouTube Music",
+    "url": "https://github.com/modelcontextprotocol/youtube-music-mcp",
+    "description": "Music streaming and playlist management",
+    "category": "Music & Audio Generation"
+  },
+  {
+    "name": "Cloudinary",
+    "url": "https://github.com/cloudinary/mcp-cloudinary",
+    "description": "Image and video management platform",
+    "category": "Video & Media Processing"
+  },
+  {
+    "name": "NativePHP",
+    "url": "https://github.com/NativePHP/mcp-nativephp",
+    "description": "Native desktop application development",
+    "category": "Development Tools"
+  },
+  {
+    "name": "ContextDB",
+    "url": "https://github.com/contextual-ai/mcp-contextdb",
+    "description": "Context-aware database for AI applications",
+    "category": "AI Development"
+  },
+  {
+    "name": "Anthropic Ntp",
+    "url": "https://github.com/anthropics/mcp-ntp",
+    "description": "Network Time Protocol services",
+    "category": "Network Tools"
+  },
+  {
+    "name": "RSS",
+    "url": "https://github.com/evalexpr/mcp-rss",
+    "description": "RSS feed aggregation and content syndication",
+    "category": "Web Scraping & Data Extraction"
+  },
+  {
+    "name": "Algolia",
+    "url": "https://github.com/algolia/mcp-algolia",
+    "description": "Search and discovery API platform",
+    "category": "Search Engine"
+  },
+  {
+    "name": "Firecrawl",
+    "url": "https://github.com/firecrawl-dev/mcp-firecrawl",
+    "description": "Web scraping and data extraction service",
+    "category": "Web Scraping & Data Extraction"
+  },
+  {
+    "name": "WeatherKit",
+    "url": "https://github.com/TASallin/mcp-weatherkit",
+    "description": "Apple's weather data and forecasting service",
+    "category": "Weather & Environment"
+  },
+  {
+    "name": "Anthropic Time",
+    "url": "https://github.com/anthropics/mcp-time",
+    "description": "Time and date utilities for AI applications",
+    "category": "Utility Tools"
+  },
+  {
+    "name": "YouTrack",
+    "url": "https://github.com/TASallin/mcp-youtrack",
+    "description": "Issue tracking and project management",
+    "category": "Project Management"
+  },
+  {
+    "name": "QuickBooks",
+    "url": "https://github.com/ruvnet/mcp-quickbooks",
+    "description": "Accounting and financial management software",
+    "category": "Financial Management"
+  },
+  {
+    "name": "Postmark",
+    "url": "https://github.com/VikParuchuri/postmark-mcp",
+    "description": "Transactional email delivery service",
+    "category": "Email Management"
+  },
+  {
+    "name": "Kestrel",
+    "url": "https://github.com/strazto/mcp-kestrel",
+    "description": "High-performance web server for .NET",
+    "category": "Web Development"
+  },
+  {
+    "name": "Mattermost",
+    "url": "https://github.com/mattermost/mcp-mattermost",
+    "description": "Open-source team collaboration platform",
+    "category": "Team Communication"
+  },
+  {
+    "name": "Prometheus",
+    "url": "https://github.com/prometheus/mcp-prometheus",
+    "description": "Monitoring and alerting system",
+    "category": "Monitoring & Dashboards"
+  },
+  {
+    "name": "Mock",
+    "url": "https://github.com/evalexpr/mcp-mock",
+    "description": "Mock data generation for testing",
+    "category": "Testing & Development"
+  },
+  {
+    "name": "Calculator",
+    "url": "https://github.com/adhikasp/calculator-mcp",
+    "description": "Mathematical calculations and expressions",
+    "category": "Calculator & Math"
+  },
+  {
+    "name": "TikTok",
+    "url": "https://github.com/Ejb503/tiktok-mcp-server",
+    "description": "Social media platform integration",
+    "category": "Social Media"
+  },
+  {
+    "name": "AniList",
+    "url": "https://github.com/TASallin/mcp-anilist",
+    "description": "Anime and manga database and tracking",
+    "category": "Anime & Media Database"
+  },
+  {
+    "name": "MyAnimeList",
+    "url": "https://github.com/TASallin/mcp-myanimelist",
+    "description": "Anime and manga database platform",
+    "category": "Anime & Media"
+  },
+  {
+    "name": "TeamCity",
+    "url": "https://github.com/TASallin/mcp-teamcity",
+    "description": "Continuous integration and build management",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Ubiops",
+    "url": "https://github.com/UbiOps/mcp-ubiops",
+    "description": "ML model deployment and serving platform",
+    "category": "ML Pipeline Management"
+  },
+  {
+    "name": "MCP Browser",
+    "url": "https://github.com/strazto/mcp-browser",
+    "description": "Browser automation and web interaction",
+    "category": "Browser Automation"
+  },
+  {
+    "name": "JD Edwards",
+    "url": "https://github.com/oracle/mcp-jde",
+    "description": "Enterprise resource planning system",
+    "category": "Enterprise Software"
+  },
+  {
+    "name": "Anthropic Server",
+    "url": "https://github.com/anthropics/mcp-server-template",
+    "description": "Template for creating MCP servers",
+    "category": "MCP Development Framework"
+  },
+  {
+    "name": "MLflow",
+    "url": "https://github.com/mlflow/mcp-mlflow",
+    "description": "Machine learning lifecycle management",
+    "category": "MLOps & Observability"
+  },
+  {
+    "name": "Kubernetes Observability",
+    "url": "https://github.com/ModelContextProtocol/kubernetes-observability-mcp-server",
+    "description": "Kubernetes cluster monitoring and observability",
+    "category": "Container Orchestration"
+  },
+  {
+    "name": "AssemblyAI",
+    "url": "https://github.com/AssemblyAI/mcp-assemblyai",
+    "description": "Speech-to-text and audio intelligence",
+    "category": "Voice & Audio"
+  },
+  {
+    "name": "WordPress",
+    "url": "https://github.com/WordPress/mcp-wordpress",
+    "description": "Content management system and blogging",
+    "category": "CMS & Web Development"
+  },
+  {
+    "name": "Gmail API",
+    "url": "https://github.com/MarkusPfundstein/mcp-gmail",
+    "description": "Gmail email management and automation",
+    "category": "Email Management"
+  },
+  {
+    "name": "RDF Explorer",
+    "url": "https://github.com/benwilber/mcp-rdf",
+    "description": "RDF data exploration and semantic web",
+    "category": "Data Management"
+  },
+  {
+    "name": "MailerSend",
+    "url": "https://github.com/mailersend/mcp-mailersend",
+    "description": "Transactional email and SMS platform",
+    "category": "Email Testing"
+  },
+  {
+    "name": "Zed",
+    "url": "https://github.com/zed-industries/mcp-zed",
+    "description": "Code editor with collaborative features",
+    "category": "Code Editor & Development"
+  },
+  {
+    "name": "Qovery",
+    "url": "https://github.com/Qovery/mcp-qovery",
+    "description": "Cloud platform for developers",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "Claude AI",
+    "url": "https://github.com/TASallin/mcp-claude",
+    "description": "Claude AI assistant integration",
+    "category": "AI Assistant & Integration"
+  },
+  {
+    "name": "Okta",
+    "url": "https://github.com/okta/mcp-okta",
+    "description": "Identity and access management",
+    "category": "Identity & Access Management"
+  },
+  {
+    "name": "Railway",
+    "url": "https://github.com/railway/mcp-railway",
+    "description": "Cloud platform for application deployment",
+    "category": "Web Hosting"
+  },
+  {
+    "name": "MS Graph",
+    "url": "https://github.com/microsoft/mcp-msgraph",
+    "description": "Microsoft Graph API integration",
+    "category": "Office Suite"
+  },
+  {
+    "name": "Brave Search Advanced",
+    "url": "https://github.com/brave/mcp-brave-search",
+    "description": "Advanced Brave Search API integration",
+    "category": "Web Search"
+  },
+  {
+    "name": "Active Directory",
+    "url": "https://github.com/microsoft/mcp-activedirectory",
+    "description": "Windows Active Directory management",
+    "category": "Security & Active Directory"
+  },
+  {
+    "name": "Apollo",
+    "url": "https://github.com/apollographql/mcp-apollo",
+    "description": "GraphQL development and data graph",
+    "category": "API Gateway"
+  },
+  {
+    "name": "Deno",
+    "url": "https://github.com/denoland/mcp-deno",
+    "description": "Modern JavaScript and TypeScript runtime",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Jira Cloud",
+    "url": "https://github.com/atlassian/mcp-jira-cloud",
+    "description": "Cloud-based issue tracking and project management",
+    "category": "Project Management"
+  },
+  {
+    "name": "Langfuse",
+    "url": "https://github.com/langfuse/mcp-langfuse",
+    "description": "LLM engineering and observability platform",
+    "category": "AI Development Framework"
+  },
+  {
+    "name": "Terraform",
+    "url": "https://github.com/hashicorp/mcp-terraform",
+    "description": "Infrastructure as code and provisioning",
+    "category": "Infrastructure as Code"
+  },
+  {
+    "name": "SalesForce",
+    "url": "https://github.com/salesforce/mcp-salesforce",
+    "description": "Customer relationship management platform",
+    "category": "CRM"
+  },
+  {
+    "name": "Digital Ocean",
+    "url": "https://github.com/digitalocean/mcp-digitalocean",
+    "description": "Cloud infrastructure and platform services",
+    "category": "Cloud Services"
+  },
+  {
+    "name": "Docker Hub",
+    "url": "https://github.com/docker/mcp-dockerhub",
+    "description": "Container image registry and distribution",
+    "category": "Container Management"
+  },
+  {
+    "name": "Neo4j",
+    "url": "https://github.com/neo4j/mcp-neo4j",
+    "description": "Graph database and analytics platform",
+    "category": "Graph Database"
+  },
+  {
+    "name": "WP Engine",
+    "url": "https://github.com/wpengine/mcp-wpengine",
+    "description": "Managed WordPress hosting platform",
+    "category": "Web Hosting"
+  },
+  {
+    "name": "VectorShift",
+    "url": "https://github.com/VectorShift/mcp-vectorshift",
+    "description": "No-code AI application builder",
+    "category": "AI Development Framework"
+  },
+  {
+    "name": "Codecov",
+    "url": "https://github.com/codecov/mcp-codecov",
+    "description": "Code coverage and testing analytics",
+    "category": "Code Observability"
+  },
+  {
+    "name": "Moodle",
+    "url": "https://github.com/moodle/mcp-moodle",
+    "description": "Learning management system and e-learning",
+    "category": "Education & E-learning"
+  },
+  {
+    "name": "Sentry Advanced",
+    "url": "https://github.com/getsentry/mcp-sentry",
+    "description": "Application monitoring and error tracking",
+    "category": "Error Monitoring"
+  },
+  {
+    "name": "Todoist Advanced",
+    "url": "https://github.com/todoist/mcp-todoist",
+    "description": "Task management and productivity platform",
+    "category": "Project Management"
+  },
+  {
+    "name": "Upstash",
+    "url": "https://github.com/upstash/mcp-upstash",
+    "description": "Serverless database and messaging platform",
+    "category": "Cloud Database"
+  },
+  {
+    "name": "AWS CloudWatch",
+    "url": "https://github.com/aws/mcp-cloudwatch",
+    "description": "AWS monitoring and observability service",
+    "category": "Cloud Services"
+  },
+  {
+    "name": "Linear Advanced",
+    "url": "https://github.com/linear/mcp-linear",
+    "description": "Issue tracking and project management platform",
+    "category": "Project Management"
+  },
+  {
+    "name": "Microsoft Teams",
+    "url": "https://github.com/microsoft/mcp-teams",
+    "description": "Collaboration and communication platform",
+    "category": "Enterprise Messaging"
+  },
+  {
+    "name": "Redis Cloud",
+    "url": "https://github.com/redis/mcp-redis-cloud",
+    "description": "Cloud-hosted Redis database service",
+    "category": "Cloud Database"
+  },
+  {
+    "name": "Spotify Advanced",
+    "url": "https://github.com/spotify/mcp-spotify",
+    "description": "Music streaming platform with advanced features",
+    "category": "Media Generation"
+  },
+  {
+    "name": "Xcode",
+    "url": "https://github.com/apple/mcp-xcode",
+    "description": "iOS and macOS development environment",
+    "category": "iOS Development"
+  },
+  {
+    "name": "Anthropic Curl",
+    "url": "https://github.com/anthropics/mcp-curl",
+    "description": "HTTP client and API testing tool",
+    "category": "Network Tools"
+  },
+  {
+    "name": "Auth0",
+    "url": "https://github.com/auth0/mcp-auth0",
+    "description": "Identity and access management platform",
+    "category": "Identity & Access Management"
+  },
+  {
+    "name": "LangSmith",
+    "url": "https://github.com/langchain-ai/mcp-langsmith",
+    "description": "LLM application development and debugging",
+    "category": "AI Development"
+  },
+  {
+    "name": "Figma",
+    "url": "https://github.com/figma/mcp-figma",
+    "description": "Design and prototyping platform",
+    "category": "UI & Design"
+  },
+  {
+    "name": "Pinecone Advanced",
+    "url": "https://github.com/pinecone-io/mcp-pinecone-advanced",
+    "description": "Vector database with advanced features",
+    "category": "Vector Database & RAG"
+  },
+  {
+    "name": "Cohere",
+    "url": "https://github.com/cohere-ai/mcp-cohere",
+    "description": "Natural language processing and AI platform",
+    "category": "AI Models & APIs"
+  },
+  {
+    "name": "Grafana",
+    "url": "https://github.com/grafana/mcp-grafana",
+    "description": "Monitoring and observability platform",
+    "category": "Monitoring & Dashboards"
+  },
+  {
+    "name": "Datadog",
+    "url": "https://github.com/datadog/mcp-datadog",
+    "description": "Monitoring and analytics platform",
+    "category": "Monitoring & Dashboards"
+  },
+  {
+    "name": "MongoDB Atlas",
+    "url": "https://github.com/mongodb/mcp-mongodb-atlas",
+    "description": "Cloud-based MongoDB database service",
+    "category": "Cloud Database"
+  },
+  {
+    "name": "Webflow",
+    "url": "https://github.com/webflow/mcp-webflow",
+    "description": "Visual web design and development platform",
+    "category": "Web Development & CMS"
+  },
+  {
+    "name": "GitHub Actions",
+    "url": "https://github.com/github/mcp-github-actions",
+    "description": "CI/CD automation and workflow platform",
+    "category": "Development Tools"
+  },
+  {
+    "name": "Rocketry",
+    "url": "https://github.com/rocketry/mcp-rocketry",
+    "description": "Task scheduling and automation framework",
+    "category": "Workflow Automation"
+  },
+  {
+    "name": "GCS",
+    "url": "https://github.com/google/mcp-gcs",
+    "description": "Google Cloud Storage and file management",
+    "category": "Cloud Storage"
+  },
+  {
+    "name": "Anthropic PDF",
+    "url": "https://github.com/anthropics/mcp-pdf",
+    "description": "PDF processing and document analysis",
+    "category": "Document Management"
+  },
+  {
+    "name": "Podscribe",
+    "url": "https://github.com/podscribe/mcp-podscribe",
+    "description": "Podcast transcription and analytics",
+    "category": "Podcasting"
+  },
+  {
+    "name": "Property Data",
+    "url": "https://github.com/propertydata/mcp-propertydata",
+    "description": "Real estate data and property information",
+    "category": "Property Management"
+  },
+  {
+    "name": "Whois",
+    "url": "https://github.com/whoisapi/mcp-whois",
+    "description": "Domain information and WHOIS lookup",
+    "category": "Domain Information"
+  },
+  {
+    "name": "Anthropic Screenshot",
+    "url": "https://github.com/anthropics/mcp-screenshot",
+    "description": "Website screenshot capture and analysis",
+    "category": "Website Screenshots"
+  },
+  {
+    "name": "Valibot",
+    "url": "https://github.com/valibot/mcp-valibot",
+    "description": "Schema validation and data verification",
+    "category": "Data Verification"
+  },
+  {
+    "name": "Nansen",
+    "url": "https://github.com/nansen-ai/mcp-nansen",
+    "description": "Blockchain analytics and crypto intelligence",
+    "category": "Financial Data & Crypto"
+  },
+  {
+    "name": "UiPath",
+    "url": "https://github.com/uipath/mcp-uipath",
+    "description": "Robotic process automation platform",
+    "category": "Automation"
+  },
+  {
+    "name": "Google Analytics",
+    "url": "https://github.com/google/mcp-google-analytics",
+    "description": "Web analytics and traffic analysis",
+    "category": "Web Analytics"
+  },
+  {
+    "name": "Chuck Norris",
+    "url": "https://github.com/chucknorris/mcp-chucknorris",
+    "description": "Random Chuck Norris jokes and humor",
+    "category": "Humor & Fun Content"
+  },
+  {
+    "name": "Brave Search API",
+    "url": "https://github.com/bravesearch/mcp-brave-search-api",
+    "description": "Enhanced Brave Search API with more features",
+    "category": "Web Search & Data"
+  },
+  {
+    "name": "IPQualityScore",
+    "url": "https://github.com/ipqualityscore/mcp-ipqualityscore",
+    "description": "IP reputation and fraud detection",
+    "category": "Security & IP Intelligence"
+  },
+  {
+    "name": "CopilotKit",
+    "url": "https://github.com/CopilotKit/mcp-copilotkit",
+    "description": "AI copilot framework and integration",
+    "category": "AI Agent Platform"
+  },
+  {
+    "name": "Open-Meteo",
+    "url": "https://github.com/open-meteo/mcp-open-meteo",
+    "description": "Weather data and meteorological information",
+    "category": "Weather & Environment"
+  },
+  {
+    "name": "Phind",
+    "url": "https://github.com/phind/mcp-phind",
+    "description": "AI-powered search for developers",
+    "category": "Search & Research"
+  },
+  {
+    "name": "Vega-Lite",
+    "url": "https://github.com/vega/mcp-vega-lite",
+    "description": "Data visualization and charting",
+    "category": "Data Visualization"
+  },
+  {
+    "name": "Coinbase",
+    "url": "https://github.com/coinbase/mcp-coinbase",
+    "description": "Cryptocurrency exchange and trading",
+    "category": "Cryptocurrency & Blockchain"
+  },
+  {
+    "name": "Smart Home",
+    "url": "https://github.com/smarthome/mcp-smarthome",
+    "description": "Home automation and IoT device control",
+    "category": "Smart Home & IoT"
+  },
+  {
+    "name": "Wandb",
+    "url": "https://github.com/wandb/mcp-wandb",
+    "description": "Machine learning experiment tracking",
+    "category": "ML Data Management"
+  },
+  {
+    "name": "Miro",
+    "url": "https://github.com/miro/mcp-miro",
+    "description": "Online collaborative whiteboard platform",
+    "category": "Collaboration & Whiteboard"
+  },
+  {
+    "name": "Venngage",
+    "url": "https://github.com/venngage/mcp-venngage",
+    "description": "Infographic and visual content creation",
+    "category": "UI Development"
+  },
+  {
+    "name": "BigData",
+    "url": "https://github.com/bigdata/mcp-bigdata",
+    "description": "Big data processing and analytics platform",
+    "category": "Big Data Platform"
+  },
+  {
+    "name": "HashiCorp Vault",
+    "url": "https://github.com/hashicorp/mcp-vault",
+    "description": "Secrets management and data protection",
+    "category": "Security & Compliance"
+  },
+  {
+    "name": "SAP",
+    "url": "https://github.com/sap/mcp-sap",
+    "description": "Enterprise resource planning and business software",
+    "category": "Enterprise Software"
+  },
+  {
+    "name": "Druva",
+    "url": "https://github.com/druva/mcp-druva",
+    "description": "Data protection and backup solutions",
+    "category": "Backup & Recovery"
+  },
+  {
+    "name": "CalDAV",
+    "url": "https://github.com/caldav/mcp-caldav",
+    "description": "Calendar data access and management",
+    "category": "Calendar & Scheduling"
+  },
+  {
+    "name": "Adobe",
+    "url": "https://github.com/adobe/mcp-adobe",
+    "description": "Creative Cloud and design tools integration",
+    "category": "3D Modeling & Design"
+  },
+  {
+    "name": "Anthropic Memory",
+    "url": "https://github.com/anthropics/mcp-memory",
+    "description": "Advanced memory management for AI applications",
+    "category": "AI Thinking Tools"
+  },
+  {
+    "name": "MailChimp",
+    "url": "https://github.com/mailchimp/mcp-mailchimp",
+    "description": "Email marketing and automation platform",
+    "category": "Digital Marketing"
+  },
+  {
+    "name": "Google Calendar",
+    "url": "https://github.com/google/mcp-google-calendar",
+    "description": "Calendar and scheduling management",
+    "category": "Calendar & Scheduling"
+  },
+  {
+    "name": "Claude Chat",
+    "url": "https://github.com/anthropics/mcp-claude-chat",
+    "description": "Claude AI chat interface integration",
+    "category": "AI Chat Interface"
+  },
+  {
+    "name": "Astra DB",
+    "url": "https://github.com/datastax/mcp-astra-db",
+    "description": "Cloud-native database platform",
+    "category": "Database & CMS"
+  },
+  {
+    "name": "NPM",
+    "url": "https://github.com/npm/mcp-npm",
+    "description": "Node.js package management and registry",
+    "category": "Package Management"
+  },
+  {
+    "name": "K6",
+    "url": "https://github.com/k6/mcp-k6",
+    "description": "Performance testing and load testing",
+    "category": "Quality Assurance & Testing"
+  },
+  {
+    "name": "PerplexityAI",
+    "url": "https://github.com/perplexity-ai/mcp-perplexity-ai",
+    "description": "AI search and research platform",
+    "category": "AI Evaluation"
+  },
+  {
+    "name": "Bitbucket",
+    "url": "https://github.com/atlassian/mcp-bitbucket",
+    "description": "Git repository hosting and collaboration",
+    "category": "Version Control"
+  },
+  {
+    "name": "TestRail",
+    "url": "https://github.com/testrail/mcp-testrail",
+    "description": "Test case management and QA platform",
+    "category": "Quality Assurance"
+  },
+  {
+    "name": "DataDog Advanced",
+    "url": "https://github.com/datadog/mcp-datadog-advanced",
+    "description": "Advanced monitoring and analytics platform",
+    "category": "Data Analytics"
+  },
+  {
+    "name": "Segment",
+    "url": "https://github.com/segment/mcp-segment",
+    "description": "Customer data platform and analytics",
+    "category": "Data Analytics"
+  },
+  {
+    "name": "Zendesk",
+    "url": "https://github.com/zendesk/mcp-zendesk",
+    "description": "Customer service and support platform",
+    "category": "Customer Support"
+  },
+  {
+    "name": "Grok",
+    "url": "https://github.com/grok/mcp-grok",
+    "description": "AI assistant and chatbot platform",
+    "category": "AI Assistant & Integration"
+  },
+  {
+    "name": "VS Code",
+    "url": "https://github.com/microsoft/mcp-vscode",
+    "description": "Code editor with MCP integration",
+    "category": "IDE Integration"
+  },
+  {
+    "name": "Jekyll",
+    "url": "https://github.com/jekyll/mcp-jekyll",
+    "description": "Static site generator and blogging platform",
+    "category": "Web Development & CMS"
+  },
+  {
+    "name": "Buffer",
+    "url": "https://github.com/buffer/mcp-buffer",
+    "description": "Social media management and scheduling",
+    "category": "Social Media"
+  },
+  {
+    "name": "MongoDB Compass",
+    "url": "https://github.com/mongodb/mcp-mongodb-compass",
+    "description": "MongoDB database exploration and management",
+    "category": "Database & Backend"
+  },
+  {
+    "name": "ClickHouse Cloud",
+    "url": "https://github.com/clickhouse/mcp-clickhouse-cloud",
+    "description": "Cloud-based columnar database service",
+    "category": "Data Warehousing"
+  },
+  {
+    "name": "GitHub Copilot",
+    "url": "https://github.com/github/mcp-github-copilot",
+    "description": "AI-powered code completion and assistance",
+    "category": "AI Development"
+  },
+  {
+    "name": "Netlify",
+    "url": "https://github.com/netlify/mcp-netlify",
+    "description": "Web development platform and hosting",
+    "category": "Web Development & CMS"
+  },
+  {
+    "name": "OpenAI Advanced",
+    "url": "https://github.com/openai/mcp-openai-advanced",
+    "description": "Advanced OpenAI API integration",
+    "category": "AI Models & APIs"
+  },
+  {
+    "name": "Nuxt",
+    "url": "https://github.com/nuxt/mcp-nuxt",
+    "description": "Vue.js framework for web development",
+    "category": "Web Development"
+  },
+  {
+    "name": "Framer",
+    "url": "https://github.com/framer/mcp-framer",
+    "description": "Web design and prototyping platform",
+    "category": "UI Development"
+  },
+  {
+    "name": "Podman",
+    "url": "https://github.com/podman/mcp-podman",
+    "description": "Container engine and orchestration",
+    "category": "Container Management"
+  },
+  {
+    "name": "Directus",
+    "url": "https://github.com/directus/mcp-directus",
+    "description": "Headless CMS and API platform",
+    "category": "CMS & Web Development"
+  },
+  {
+    "name": "Sanity",
+    "url": "https://github.com/sanity-io/mcp-sanity",
+    "description": "Headless CMS and content platform",
+    "category": "Content Management System"
+  },
+  {
+    "name": "Contentful",
+    "url": "https://github.com/contentful/mcp-contentful",
+    "description": "Headless CMS and content infrastructure",
+    "category": "Content Management"
+  },
+  {
+    "name": "Strapi",
+    "url": "https://github.com/strapi/mcp-strapi",
+    "description": "Open-source headless CMS",
+    "category": "CMS & Web Development"
+  },
+  {
+    "name": "Mantine",
+    "url": "https://github.com/mantinedev/mcp-mantine",
+    "description": "React components and hooks library",
+    "category": "UI Development"
+  },
+  {
+    "name": "Chakra UI",
+    "url": "https://github.com/chakra-ui/mcp-chakra-ui",
+    "description": "React component library for building UIs",
+    "category": "UI Development"
+  },
+  {
+    "name": "Heroku",
+    "url": "https://github.com/heroku/mcp-heroku",
+    "description": "Cloud platform for application deployment",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "Fly.io",
+    "url": "https://github.com/fly-apps/mcp-fly",
+    "description": "Global application deployment platform",
+    "category": "Cloud Infrastructure"
+  },
+  {
+    "name": "Render",
+    "url": "https://github.com/render/mcp-render",
+    "description": "Cloud platform for developers",
+    "category": "Cloud Infrastructure"
+  }
+];
+
+        let allServers = [];
+        let filteredServers = [];
+        let currentTab = 'all';
+
+        // Load servers data
+        function loadServers() {
+            allServers = mcpServersData;
+            populateCategoryFilter();
+            displayServers(allServers);
+            updateResultsInfo(allServers.length, allServers.length);
+        }
+
+        function populateCategoryFilter() {
+            const categories = [...new Set(allServers.map(s => s.category).filter(Boolean))].sort();
+            const categoryFilter = document.getElementById('categoryFilter');
+            
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        function getCategoryClass(category) {
+            if (!category) return '';
+            const key = category.toLowerCase().split(' ')[0];
+            const mapping = {
+                'database': 'category-database',
+                'search': 'category-search',
+                'project': 'category-project',
+                'knowledge': 'category-knowledge',
+                'web': 'category-web',
+                'cloud': 'category-cloud',
+                'development': 'category-development',
+                'workflow': 'category-workflow'
+            };
+            return mapping[key] || '';
+        }
+
+        function createServerCard(server) {
+            const categoryClass = getCategoryClass(server.category);
+            const githubUrl = server.url || '#';
+            const repoName = githubUrl.includes('github.com') ? 
+                githubUrl.split('/').slice(-2).join('/') : 
+                'View Repository';
+
+            return `
+                <div class="server-card" onclick="window.open('${githubUrl}', '_blank')">
+                    <div class="server-header">
+                        <div class="server-info">
+                            <div class="server-name">${server.name}</div>
+                            <div class="server-category ${categoryClass}">${server.category || 'Uncategorized'}</div>
+                        </div>
+                    </div>
+                    <div class="server-description">${server.description || 'No description available.'}</div>
+                    <div class="server-footer">
+                        <a href="${githubUrl}" class="server-url" onclick="event.stopPropagation()">
+                            <svg class="github-icon" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            ${repoName}
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayServers(servers) {
+            const grid = document.getElementById('serversGrid');
+            
+            if (servers.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-results">
+                        <h3>No servers found</h3>
+                        <p>Try adjusting your search or filter criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = servers.map(createServerCard).join('');
+        }
+
+        function updateResultsInfo(showing, total) {
+            const info = document.getElementById('resultsInfo');
+            info.textContent = showing === total ? 
+                `Showing all ${total} servers` : 
+                `Showing ${showing} of ${total} servers`;
+        }
+
+        function filterServers() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            
+            let filtered = allServers;
+
+            // Apply search filter
+            if (searchTerm) {
+                filtered = filtered.filter(server => 
+                    server.name.toLowerCase().includes(searchTerm) ||
+                    server.description.toLowerCase().includes(searchTerm) ||
+                    server.category.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // Apply category filter
+            if (categoryFilter) {
+                filtered = filtered.filter(server => server.category === categoryFilter);
+            }
+
+            // Apply tab filter
+            if (currentTab !== 'all') {
+                const tabFilters = {
+                    'featured': servers => servers.slice(0, 20), // Top 20 as featured
+                    'database': servers => servers.filter(s => s.category.toLowerCase().includes('database')),
+                    'search': servers => servers.filter(s => s.category.toLowerCase().includes('search')),
+                    'project': servers => servers.filter(s => s.category.toLowerCase().includes('project')),
+                    'development': servers => servers.filter(s => s.category.toLowerCase().includes('development')),
+                    'cloud': servers => servers.filter(s => s.category.toLowerCase().includes('cloud'))
+                };
+                
+                if (tabFilters[currentTab]) {
+                    filtered = tabFilters[currentTab](filtered);
+                }
+            }
+
+            filteredServers = filtered;
+            displayServers(filtered);
+            updateResultsInfo(filtered.length, allServers.length);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterServers);
+        document.getElementById('categoryFilter').addEventListener('change', filterServers);
+
+        // Tab navigation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentTab = tab.dataset.tab;
+                filterServers();
+            });
+        });
+
+        // Initialize
+        loadServers();
+    </script>
+</body>
+</html>
