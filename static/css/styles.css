@@ -48,6 +48,13 @@ body {
     font-weight: bold;
     color: #052839;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
 }
 
 .nav-links {
