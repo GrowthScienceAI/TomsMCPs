@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: tomsmcps
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: False
+      - key: LOG_LEVEL
+        value: INFO
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    healthCheckPath: /health
+    autoDeploy: true
