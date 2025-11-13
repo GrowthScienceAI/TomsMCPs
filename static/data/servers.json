@@ -1,7 +1,7 @@
 [
   {
     "name": "Brave Search",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "Web and local search using Brave's Search API",
     "category": "Search"
   },
@@ -25,19 +25,19 @@
   },
   {
     "name": "GitLab",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gitlab",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "GitLab API, enabling project management",
     "category": "Version Control"
   },
   {
     "name": "Google Drive",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "File access and search capabilities for Google Drive",
     "category": "Cloud Storage"
   },
   {
     "name": "Google Maps",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "Location services, directions, and place details",
     "category": "Maps & Location"
   },
@@ -49,19 +49,19 @@
   },
   {
     "name": "PostgreSQL",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "Read-only database access with schema inspection",
     "category": "Database"
   },
   {
     "name": "Puppeteer",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "Browser automation and web scraping",
     "category": "Web Automation"
   },
   {
     "name": "Sentry (modelcontextprotocol)",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sentry",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "Retrieving and analyzing issues from Sentry.io",
     "category": "Observability & Logging"
   },
@@ -73,13 +73,13 @@
   },
   {
     "name": "Slack (modelcontextprotocol)",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "Channel management and messaging capabilities",
     "category": "Communication & Messaging"
   },
   {
     "name": "Sqlite",
-    "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+    "url": "https://github.com/modelcontextprotocol/servers",
     "description": "Database interaction and business intelligence capabilities",
     "category": "Database"
   },
@@ -169,7 +169,7 @@
   },
   {
     "name": "AWS Cost Analysis",
-    "url": "https://github.com/awslabs/mcp/tree/main/src/cost-analysis-mcp-server",
+    "url": "https://github.com/awslabs/mcp",
     "description": "Analyze CDK projects to identify AWS services used and get pricing information from AWS pricing webpages and API.",
     "category": "Cloud & Infrastructure"
   },
