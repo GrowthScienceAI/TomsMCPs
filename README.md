@@ -1,5 +1,12 @@
 # TomsMCPs - MCP Server Directory
 
+[![Deploy Status](https://img.shields.io/badge/deploy-live-success)](https://tomsmcps.onrender.com)
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Flask](https://img.shields.io/badge/flask-3.1+-green.svg)](https://flask.palletsprojects.com/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+**🌐 Live Site:** [https://tomsmcps.onrender.com](https://tomsmcps.onrender.com)
+
 A comprehensive, searchable web directory of Model Context Protocol (MCP) servers, designed to help developers discover and integrate MCP servers for AI automation and enhancement.
 
 ## Overview
